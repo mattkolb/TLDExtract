@@ -186,7 +186,7 @@ class Result implements \ArrayAccess, ResultInterface
      *
      * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return property_exists($this, $offset);
     }
@@ -200,7 +200,7 @@ class Result implements \ArrayAccess, ResultInterface
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->{$offset};
     }
@@ -248,7 +248,7 @@ class Result implements \ArrayAccess, ResultInterface
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         throw new \LogicException(
             sprintf("Can't modify an immutable object. You tried to set value '%s' to field '%s'.", $value, $offset)
@@ -264,7 +264,7 @@ class Result implements \ArrayAccess, ResultInterface
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         throw new \LogicException(sprintf("Can't modify an immutable object. You tried to unset '%s.'", $offset));
     }
